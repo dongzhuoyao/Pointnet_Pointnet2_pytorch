@@ -40,7 +40,7 @@ def test(model, loader, num_class=40, vote_num=1):
     for j, (points, target) in tqdm(enumerate(loader), total=len(loader)):
         if not args.use_cpu:
             points, target = points.cuda(), target.cuda()
-
+        print(points.shape);exit(0)
         points = points.transpose(2, 1)
         vote_pool = torch.zeros(target.size()[0], num_class).cuda()
 
